@@ -12,23 +12,25 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class MainActivity extends AppCompatActivity {
+
     private Button scan_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // set the user interface layout for this Activity
-            // the layout file is defined in the project res/layout/main_activity.xml file
+        // the layout file is defined in the project res/layout/main_activity.xml file
         setContentView(R.layout.activity_main);
 
         //Defined a Button in the layout file and assigned it a unique ID
-            //Button scan_btn = (Button) findViewById(R.id.scan_btn);
+            /*Button scan_btn = (Button) findViewById(R.id.scan_btn);*/
         scan_btn = (Button) findViewById(R.id.scan_btn); //find the button
 
         final Activity activity = this;
 
         //Button, have an interface that listens to the button events
-            // Set my button event to listen to the user events
+        // Set my button event to listen to the user events
         scan_btn.setOnClickListener(new View.OnClickListener() {
             @Override
                 //What want to do after the event comes inside the onClick method
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 integrator.setCameraId(0);
                 integrator.setBeepEnabled(true);
                 integrator.setBarcodeImageEnabled(false);
-                integrator.setTimeout(8000);
+                integrator.setTimeout(15000);
                 integrator.initiateScan();
             }
         });
